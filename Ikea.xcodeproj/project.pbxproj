@@ -15,6 +15,7 @@
 		7D99145D20DB5F9A00E88269 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D99145B20DB5F9A00E88269 /* LaunchScreen.storyboard */; };
 		7D99146820DB5F9A00E88269 /* IkeaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99146720DB5F9A00E88269 /* IkeaTests.swift */; };
 		7D99147320DB5F9A00E88269 /* IkeaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99147220DB5F9A00E88269 /* IkeaUITests.swift */; };
+		7D99148120DB66EF00E88269 /* itemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99148020DB66EF00E88269 /* itemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7D99146E20DB5F9A00E88269 /* IkeaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IkeaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D99147220DB5F9A00E88269 /* IkeaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IkeaUITests.swift; sourceTree = "<group>"; };
 		7D99147420DB5F9A00E88269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D99148020DB66EF00E88269 /* itemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				7D99145B20DB5F9A00E88269 /* LaunchScreen.storyboard */,
 				7D99145E20DB5F9A00E88269 /* Info.plist */,
 				7D99145620DB5F9900E88269 /* Ikea.xcdatamodeld */,
+				7D99148020DB66EF00E88269 /* itemCell.swift */,
 			);
 			path = Ikea;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D99148120DB66EF00E88269 /* itemCell.swift in Sources */,
 				7D99145220DB5F9900E88269 /* ViewController.swift in Sources */,
 				7D99145820DB5F9900E88269 /* Ikea.xcdatamodeld in Sources */,
 				7D99145020DB5F9900E88269 /* AppDelegate.swift in Sources */,
@@ -437,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 237J8UY6UT;
 				INFOPLIST_FILE = Ikea/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 237J8UY6UT;
 				INFOPLIST_FILE = Ikea/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
