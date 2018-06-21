@@ -10,7 +10,7 @@ import UIKit
 import ARKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
-    let itemsArray : [String] = ["CUP", "VASE", "BOXING", "TABLE"]
+    let itemsArray : [String] = ["cup", "vase", "boxing", "table"]
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func addItem(hitTestResult: ARHitTestResult){
         if let selectedItem = self.selectedItem{
             let scene = SCNScene(named: "Models.scnassets/\(selectedItem).scn")
-            let node = (scene?.rootNode.childNode(withName: "selectedItem", recursively: false))!
+            let node = (scene?.rootNode.childNode(withName: selectedItem, recursively: false))!
             let transform = hitTestResult.worldTransform
             let thirdColumn = transform.columns.3
             node.position = SCNVector3(thirdColumn.x,thirdColumn.y,thirdColumn.z)
