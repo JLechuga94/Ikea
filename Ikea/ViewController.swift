@@ -8,7 +8,8 @@
 
 import UIKit
 import ARKit
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ARSCNViewDelegate{
+    @IBOutlet weak var planeDetected: UILabel!
     
     let itemsArray : [String] = ["cup", "vase", "boxing", "table"]
     @IBOutlet weak var itemsCollectionView: UICollectionView!
@@ -22,15 +23,34 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.sceneView.session.run(configuration)
         self.itemsCollectionView.dataSource = self
         self.itemsCollectionView.delegate = self
+        self.sceneView.delegate = self
         self.registerGestureRecognizers()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     func registerGestureRecognizers(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
+        self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
     }
-
+    
+    @objc func pinch(sender: UIPinchGestureRecognizer){
+        let sceneView = sender.view as! ARSCNView
+        let pinchLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(pinchLocation)
+        if !hitTest.isEmpty{
+            let results = hitTest.first!
+            let node = results.node
+            let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
+            print(sender.scale)
+            node.runAction(pinchAction)
+            sender.scale = 1.0
+        }
+    }
+    
     @objc func tapped(sender: UITapGestureRecognizer){
         let sceneView = sender.view as! ARSCNView
         let tapLocation = sender.location(in: sceneView)
@@ -39,6 +59,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.addItem(hitTestResult: hitTest.first!)
         }
     }
+    
+    @objc func rotate(){
+        
+    }
+    
     func addItem(hitTestResult: ARHitTestResult){
         if let selectedItem = self.selectedItem{
             let scene = SCNScene(named: "Models.scnassets/\(selectedItem).scn")
@@ -68,6 +93,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.orange
+    }
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard anchor is ARPlaneAnchor else {return}
+        DispatchQueue.main.async{
+            self.planeDetected.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                self.planeDetected.isHidden = true
+            }
+        }
+        
     }
 }
 
