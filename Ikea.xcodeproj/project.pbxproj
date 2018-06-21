@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D8DF21320DB7ED300EE2DD6 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D8DF21220DB7ED300EE2DD6 /* Models.scnassets */; };
 		7D99145020DB5F9900E88269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99144F20DB5F9900E88269 /* AppDelegate.swift */; };
 		7D99145220DB5F9900E88269 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99145120DB5F9900E88269 /* ViewController.swift */; };
 		7D99145520DB5F9900E88269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D99145320DB5F9900E88269 /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		7D99146820DB5F9A00E88269 /* IkeaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99146720DB5F9A00E88269 /* IkeaTests.swift */; };
 		7D99147320DB5F9A00E88269 /* IkeaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99147220DB5F9A00E88269 /* IkeaUITests.swift */; };
 		7D99148120DB66EF00E88269 /* itemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D99148020DB66EF00E88269 /* itemCell.swift */; };
-		7D99148320DB716300E88269 /* Models.scassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D99148220DB716300E88269 /* Models.scassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D8DF21220DB7ED300EE2DD6 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = Models.scnassets; path = ../../../../../Downloads/Models.scnassets; sourceTree = "<group>"; };
 		7D99144C20DB5F9900E88269 /* Ikea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ikea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D99144F20DB5F9900E88269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D99145120DB5F9900E88269 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		7D99147220DB5F9A00E88269 /* IkeaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IkeaUITests.swift; sourceTree = "<group>"; };
 		7D99147420DB5F9A00E88269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D99148020DB66EF00E88269 /* itemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemCell.swift; sourceTree = "<group>"; };
-		7D99148220DB716300E88269 /* Models.scassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models.scassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 		7D99144E20DB5F9900E88269 /* Ikea */ = {
 			isa = PBXGroup;
 			children = (
-				7D99148220DB716300E88269 /* Models.scassets */,
+				7D8DF21220DB7ED300EE2DD6 /* Models.scnassets */,
 				7D99144F20DB5F9900E88269 /* AppDelegate.swift */,
 				7D99145120DB5F9900E88269 /* ViewController.swift */,
 				7D99145320DB5F9900E88269 /* Main.storyboard */,
@@ -239,8 +239,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D99145D20DB5F9A00E88269 /* LaunchScreen.storyboard in Resources */,
+				7D8DF21320DB7ED300EE2DD6 /* Models.scnassets in Resources */,
 				7D99145A20DB5F9A00E88269 /* Assets.xcassets in Resources */,
-				7D99148320DB716300E88269 /* Models.scassets in Resources */,
 				7D99145520DB5F9900E88269 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
