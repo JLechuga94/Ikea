@@ -9,6 +9,7 @@
 import UIKit
 import ARKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+    
     let itemsArray : [String] = ["CUP", "VASE", "BOXING", "TABLE"]
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     @IBOutlet weak var sceneView: ARSCNView!
