@@ -25,6 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.itemsCollectionView.delegate = self
         self.sceneView.delegate = self
         self.registerGestureRecognizers()
+        self.sceneView.autoenablesDefaultLighting = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -32,6 +33,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
+        longPressGestureRecognizer.minimumPressDuration = 0.1
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
@@ -60,8 +62,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
-    @objc func rotate(){
-        
+    @objc func rotate(sender: UILongPressGestureRecognizer){
+        let sceneView = sender.view as! ARSCNView
+        let holdLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(holdLocation)
+        if !hitTest.isEmpty{
+            let result = hitTest.first!
+        if sender.state == .began{
+            let rotateAction = SCNAction.rotateBy(x: 0, y: CGFloat(360.degreesToRadians), z: 0, duration: 3)
+            let infiniteRotation = SCNAction.repeatForever(rotateAction)
+            result.node.runAction(infiniteRotation)
+        }
+        else if sender.state == .ended{
+            result.node.removeAllActions()
+        }
+    }
     }
     
     func addItem(hitTestResult: ARHitTestResult){
@@ -105,4 +120,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
     }
 }
-
+extension Int {
+    var degreesToRadians: Double { return Double(self) * .pi/180}
+}
